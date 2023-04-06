@@ -1,6 +1,5 @@
 import requests
 from requests.adapters import HTTPAdapter, Retry
-import json
 import os
 
 
@@ -39,19 +38,19 @@ def post_request(url, data):
 
 
 def get_site_device_name_and_ids(site_id):
-    url = f"https://{BASE_URL}site-info/{site_id}"
+    url = f"https://{BASE_URL}/site-info/{site_id}"
     site_info = get_request(url)
     return site_info
 
 
 def get_outages():
-    url = f"https://{BASE_URL}outages"
+    url = f"https://{BASE_URL}/outages"
     outages = get_request(url)
     return outages
 
 
 def post_outage_report(outage_report, site_id):
     outage_report = outage_report
-    url = f"https://{BASE_URL}site-outages/{site_id}"
+    url = f"https://{BASE_URL}/site-outages/{site_id}"
     response = post_request(url, outage_report)
     return response

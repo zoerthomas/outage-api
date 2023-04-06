@@ -1,6 +1,6 @@
 def check_for_error(response):
     for item in response:
-        if item == "StatusCode":
+        if item == "statusCode":
             return True
 
 def outage_report(outages, devices, exclude_before):

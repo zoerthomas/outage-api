@@ -13,14 +13,14 @@ def test_generate_outage_report():
     assert expected_outage_report == result
 
 def test_error_response_from_outages():
-    mock_400_error_response = {"StatusCode":"400",
+    mock_400_error_response = {"statusCode":"400",
                           "message": "We cannot process your request because it doesn't match the required format."}
     result = outage_report(mock_400_error_response, DEVICES, EXCLUDE_BEFORE)
     assert result == f"Issue retrieving outage info. Received the following error: {mock_400_error_response}"
 
 
 def test_error_response_from_devices():
-    mock_400_error_response = {"StatusCode":"400",
+    mock_400_error_response = {"statusCode":"400",
                           "message": "We cannot process your request because it doesn't match the required format."}
     result = outage_report(OUTAGES, mock_400_error_response, EXCLUDE_BEFORE)
     assert result == f"Issue retrieving device info. Received the following error: {mock_400_error_response}"
